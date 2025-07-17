@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+eval "$(register-python-argcomplete pipx)"
+
+export PATH="$HOME/toolchains/gcc-arm-none-eabi-XYZ/bin:$PATH"
+
+alias jlink="ll /opt/SEGGER/JLink_V796"
+
+function vv()
+{
+    source /tools/Xilinx/Vivado/2024.2/settings64.sh
+    vivado
+}
+function vt()
+{
+    source /tools/Xilinx/Vitis/2024.2/settings64.sh
+    vitis --classic
+}
+
+function qemu()
+{
+    qemu-system-arm -M lm3s811evb -kernel $1 -nographic -S -gdb tcp::1234
+}
+
+
+# Created by `pipx` on 2025-04-04 22:47:54
+export PATH="$PATH:/home/justin/.local/bin"
+export PATH=/usr/lib/cuda/bin${PATH:+:${PATH}}
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"

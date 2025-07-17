@@ -1,0 +1,10 @@
+# ~/.bash_profile
+
+# 1) login‑only things go here
+export PATH="$HOME/bin:$PATH"
+[[ -z "$SSH_AUTH_SOCK" ]] && eval "$(ssh-agent -s)"
+
+# 2) then, for interactive shells, pull in your common ~/.bashrc
+if [[ $- == *i* ]] && [ -r "$HOME/.bashrc" ]; then
+  source "$HOME/.bashrc"
+fi
